@@ -1,6 +1,6 @@
 {
-  "version": "1.1.3",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.3/AliCoupangManagerSetup-v1.1.3.zip",
-  "sha256": "22f8f6a4e28c3bd4506c9206a5f982d0b421c9c74b099798b56aa67b2e5a3c2b",
-  "notes": "주문 전체조회 수정, 알리 상품코드 필터, 잘못 불러온 상품 삭제, 수익 대시보드, 설정 화면 정리"
+  "version": "1.1.4",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.4/AliCoupangManagerSetup-v1.1.4.zip",
+  "sha256": "f8a33e6882308acb5619f7e0e7261a769cee7f7de371c26812971dbbdbb3c164",
+  "notes": "Chrome을 열지 않고 전용 데스크톱 창으로 실행, 브라우저 버벅임 개선"
 }
