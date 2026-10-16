@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "download_url": "https://raw.githubusercontent.com/geniefu217-bot/ali-coupang-manager-releases/main/AliCoupangManagerSetup-v1.1.0.exe",
-  "sha256": "68f464eb00da9f3bbc2b0dbe919fb425e72cafc7552500a9faf05c2577a16d39",
+  "download_url": "https://raw.githubusercontent.com/geniefu217-bot/ali-coupang-manager-releases/main/AliCoupangManagerSetup-v1.1.0.zip",
+  "sha256": "7c294bf4adce881deb983fc9600ea21c619c0d007b1eec6bdfdb48fe77f02c10",
   "notes": "설치형 EXE, 자동 업데이트, 알리 상품 탭 기반 수집 개선"
 }
