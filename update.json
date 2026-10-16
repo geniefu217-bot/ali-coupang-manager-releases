@@ -1,6 +1,6 @@
 {
-  "version": "1.1.4",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.4/AliCoupangManagerSetup-v1.1.4.zip",
-  "sha256": "f8a33e6882308acb5619f7e0e7261a769cee7f7de371c26812971dbbdbb3c164",
-  "notes": "Chrome을 열지 않고 전용 데스크톱 창으로 실행, 브라우저 버벅임 개선"
+  "version": "1.1.5",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.5/AliCoupangManagerSetup-v1.1.5.zip",
+  "sha256": "79600970d936c8cbf83603bb60798a342369fb1d082851ef7a02c07ddb30a615",
+  "notes": "알리 상품 옵션·재고 수집기와 쿠팡 주문 날짜 오류 수정"
 }
