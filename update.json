@@ -1,6 +1,6 @@
 {
-  "version": "1.1.21",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.21/AliCoupangManagerSetup-v1.1.21.zip",
-  "sha256": "1fb8464ddbdaecf787f7b617179114d06d87227a40c77c35313b96a27375e3db",
-  "notes": "50상품씩 자동전송·이어수집, 수집상품 중복·필수값 자동검사 후 등록, 등록일 필터·최신순 정렬, 상품관리 상단 통합, 옵션 확인 시간초과 및 원화가격 인식 보완"
+  "version": "1.1.22",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.22/AliCoupangManagerSetup-v1.1.22.zip",
+  "sha256": "af6b27332b1a0e2434e3d76788161f9c2cc283e1c96697514074820a0973355b",
+  "notes": "선택 옵션 표시가격·품절 인식 보완, 확인값 중간 저장과 부분 완료 표시, 미확인 항목만 재시도, 최초 수집 품절옵션 제외·등록옵션 품절 시 재고0 반영"
 }
