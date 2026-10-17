@@ -1,0 +1,43 @@
+name: Publish v1.1.23
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v1123.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify final Windows build
+        env:
+          ARTIFACT_URL: "https://sdmntprjapaneast.oaiusercontent.com/files/00000000-fd48-8209-8909-4f25b88edbfe/raw?se=2026-10-17T23%3A37%3A45Z&sp=r&sv=2026-02-06&sr=b&scid=8b3d1336-647f-4108-b781-d206d8a5b81e&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-17T19%3A46%3A52Z&ske=2026-10-18T19%3A46%3A52Z&sks=b&skv=2026-02-06&sig=Jd1DtJjIF7GxaajIV9BWjl4o/BWZ4ohq8ntkvnGqBac%3D"
+        run: |
+          curl --fail --location --retry 3 --max-time 180 "$ARTIFACT_URL" -o AliCoupangManagerSetup-v1.1.23.zip
+          echo "4c0e387c9798c1fb2db91eb95c25ece915d8ed02c8f52cadf70b24a30d9823ad  AliCoupangManagerSetup-v1.1.23.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.23.zip
+      - name: Publish release and verify asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.23 AliCoupangManagerSetup-v1.1.23.zip --title "알리 쿠팡 매니저 v1.1.23" --notes "상품 단위 등록 판정·집계 통일, 기존 등록 상품의 미등록 옵션 구분, 등록 제외 사유 표시, 중복 확인·수집 데이터 정리 및 복원" --latest
+          mkdir verify
+          gh release download v1.1.23 --pattern AliCoupangManagerSetup-v1.1.23.zip --dir verify
+          echo "4c0e387c9798c1fb2db91eb95c25ece915d8ed02c8f52cadf70b24a30d9823ad  verify/AliCoupangManagerSetup-v1.1.23.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.23',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.23/AliCoupangManagerSetup-v1.1.23.zip',sha256='4c0e387c9798c1fb2db91eb95c25ece915d8ed02c8f52cadf70b24a30d9823ad',notes='상품 단위 등록 판정·집계 통일, 기존 등록 상품의 미등록 옵션 구분, 등록 제외 사유 표시, 중복 확인·수집 데이터 정리 및 복원')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.23 automatic update"
+          git push
