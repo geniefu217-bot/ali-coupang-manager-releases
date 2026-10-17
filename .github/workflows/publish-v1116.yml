@@ -1,0 +1,43 @@
+name: Publish v1.1.16
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v1116.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify final Windows build
+        env:
+          ARTIFACT_URL: "https://sdmntprjapaneast.oaiusercontent.com/files/00000000-112c-8209-b67f-f2f740537823/raw?se=2026-10-17T11%3A37%3A48Z&sp=r&sv=2026-02-06&sr=b&scid=8f6a607f-6a29-43b6-8698-88b9a4c38696&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-17T03%3A40%3A10Z&ske=2026-10-18T03%3A40%3A10Z&sks=b&skv=2026-02-06&sig=JARhfC16tbwY3Bc4C/wTzGpkfuFo2gzTqZ%2BJMpPLHdQ%3D"
+        run: |
+          curl --fail --location --retry 3 --max-time 180 "$ARTIFACT_URL" -o AliCoupangManagerSetup-v1.1.16.zip
+          echo "5a45b9372949c46ad1fe1f2c269dd899dd26ec1aa69c637aa3a1bbc32a239e4e  AliCoupangManagerSetup-v1.1.16.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.16.zip
+      - name: Publish release and verify asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.16 AliCoupangManagerSetup-v1.1.16.zip --title "알리 쿠팡 매니저 v1.1.16" --notes "수집된 색상·디자인 코드를 쿠팡 필수 구매옵션에 자동 연결하고 검수 화면 자동 입력" --latest
+          mkdir verify
+          gh release download v1.1.16 --pattern AliCoupangManagerSetup-v1.1.16.zip --dir verify
+          echo "5a45b9372949c46ad1fe1f2c269dd899dd26ec1aa69c637aa3a1bbc32a239e4e  verify/AliCoupangManagerSetup-v1.1.16.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.16',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.16/AliCoupangManagerSetup-v1.1.16.zip',sha256='5a45b9372949c46ad1fe1f2c269dd899dd26ec1aa69c637aa3a1bbc32a239e4e',notes='수집된 색상·디자인 코드를 쿠팡 필수 구매옵션에 자동 연결하고 검수 화면 자동 입력')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.16 automatic update"
+          git push
