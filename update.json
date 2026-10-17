@@ -1,6 +1,6 @@
 {
-  "version": "1.1.14",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.14/AliCoupangManagerSetup-v1.1.14.zip",
-  "sha256": "80a83ff7a021c34e7c1dbe4b124c7db14e14e608ee1b5ba1077490b57408fb20",
-  "notes": "재고 확인 시 옵션별 가격 동시 확인, 기준 마진율을 유지하는 판매가 상승·하락 자동반영, 상품 요약 숫자 필터와 미확인 사유 표시"
+  "version": "1.1.15",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.15/AliCoupangManagerSetup-v1.1.15.zip",
+  "sha256": "a5b3ee69b82c9be474fbe670776e16e9408078dac5681beb11299518629333b6",
+  "notes": "상품별 묶음·옵션 펼치기, 쿠팡 필수옵션 검수와 조건미달 업로드 차단, 전송 후 수집 이어가기"
 }
