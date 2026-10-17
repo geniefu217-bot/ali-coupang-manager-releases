@@ -1,6 +1,6 @@
 {
-  "version": "1.1.13",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.13/AliCoupangManagerSetup-v1.1.13.zip",
-  "sha256": "889476809d091982f9a3c8b4f80d4b971e0072a88b0893771725cfa73e6c3337",
-  "notes": "등록 상품 재고 자동분산 확인, 삭제 페이지 연결상품 정리, 운송장 등록·상태 갱신, 수집 일시정지·이어하기 및 속도 개선"
+  "version": "1.1.14",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.14/AliCoupangManagerSetup-v1.1.14.zip",
+  "sha256": "80a83ff7a021c34e7c1dbe4b124c7db14e14e608ee1b5ba1077490b57408fb20",
+  "notes": "재고 확인 시 옵션별 가격 동시 확인, 기준 마진율을 유지하는 판매가 상승·하락 자동반영, 상품 요약 숫자 필터와 미확인 사유 표시"
 }
