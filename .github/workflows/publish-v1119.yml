@@ -1,0 +1,43 @@
+name: Publish v1.1.19
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v1119.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify final Windows build
+        env:
+          ARTIFACT_URL: "https://sdmntprwestus.oaiusercontent.com/files/00000000-6fd8-8230-892d-bca9cd84ade0/raw?se=2026-10-17T12%3A18%3A08Z&sp=r&sv=2026-02-06&sr=b&scid=fba72783-1d51-49f9-98bd-a715e18be861&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-17T00%3A29%3A51Z&ske=2026-10-18T00%3A29%3A51Z&sks=b&skv=2026-02-06&sig=CcxATJNL%2BRvke6DDvd6ovASBNrKKi%2BpSfxF8Mvc7VbM%3D"
+        run: |
+          curl --fail --location --retry 3 --max-time 180 "$ARTIFACT_URL" -o AliCoupangManagerSetup-v1.1.19.zip
+          echo "4d7e8d8e6d41795ac7d50a2dd34ebc2c925a782c7d723f475c25b91aa5376c57  AliCoupangManagerSetup-v1.1.19.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.19.zip
+      - name: Publish release and verify asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.19 AliCoupangManagerSetup-v1.1.19.zip --title "알리 쿠팡 매니저 v1.1.19" --notes "등록상품 수동 동기화 버튼, 목록 즉시 표시·옵션 지연 표시, 최소 재고 제한 제거와 기존 제외항목 복구" --latest
+          mkdir verify
+          gh release download v1.1.19 --pattern AliCoupangManagerSetup-v1.1.19.zip --dir verify
+          echo "4d7e8d8e6d41795ac7d50a2dd34ebc2c925a782c7d723f475c25b91aa5376c57  verify/AliCoupangManagerSetup-v1.1.19.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.19',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.19/AliCoupangManagerSetup-v1.1.19.zip',sha256='4d7e8d8e6d41795ac7d50a2dd34ebc2c925a782c7d723f475c25b91aa5376c57',notes='등록상품 수동 동기화 버튼, 목록 즉시 표시·옵션 지연 표시, 최소 재고 제한 제거와 기존 제외항목 복구')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.19 automatic update"
+          git push
