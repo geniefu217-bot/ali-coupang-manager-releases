@@ -1,0 +1,41 @@
+name: Publish v1.1.6
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v116.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble and verify final installer
+        run: |
+          cat release-parts/v1.1.6.part0 release-parts/v1.1.6.part1 > AliCoupangManagerSetup-v1.1.6.zip
+          echo "16d8b0dd0b3d6778ec488cddf5e3b71dd8139b210c07653eb2d5117ae7a0369e  AliCoupangManagerSetup-v1.1.6.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.6.zip
+      - name: Publish release and verify downloaded asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.6 AliCoupangManagerSetup-v1.1.6.zip --title "알리 쿠팡 매니저 v1.1.6" --notes "알리 옵션·재고 수집 및 알리 연결 주문·수익 필터 수정" --latest
+          mkdir verify
+          gh release download v1.1.6 --pattern AliCoupangManagerSetup-v1.1.6.zip --dir verify
+          echo "16d8b0dd0b3d6778ec488cddf5e3b71dd8139b210c07653eb2d5117ae7a0369e  verify/AliCoupangManagerSetup-v1.1.6.zip" | sha256sum -c -
+      - name: Activate verified update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.6', download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.6/AliCoupangManagerSetup-v1.1.6.zip', sha256='16d8b0dd0b3d6778ec488cddf5e3b71dd8139b210c07653eb2d5117ae7a0369e', notes='알리 옵션·재고 수집 및 알리 연결 주문·수익 필터 수정')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.6 update"
+          git push
