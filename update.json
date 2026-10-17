@@ -1,6 +1,6 @@
 {
-  "version": "1.1.5",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.5/AliCoupangManagerSetup-v1.1.5.zip",
-  "sha256": "79600970d936c8cbf83603bb60798a342369fb1d082851ef7a02c07ddb30a615",
-  "notes": "알리 상품 옵션·재고 수집기와 쿠팡 주문 날짜 오류 수정"
+  "version": "1.1.6",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.6/AliCoupangManagerSetup-v1.1.6.zip",
+  "sha256": "16d8b0dd0b3d6778ec488cddf5e3b71dd8139b210c07653eb2d5117ae7a0369e",
+  "notes": "알리 옵션·재고 수집 및 알리 연결 주문·수익 필터 수정"
 }
