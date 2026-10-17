@@ -1,0 +1,43 @@
+name: Publish v1.1.14
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-v1114.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify final Windows build
+        env:
+          ARTIFACT_URL: "https://sdmntprwestus2.oaiusercontent.com/files/00000000-5694-81f8-a34c-d75739ff0887/raw?se=2026-10-17T11%3A00%3A56Z&sp=r&sv=2026-02-06&sr=b&scid=74e99cf7-180e-43d8-8a31-9b0b37571d18&skoid=bb372dd6-3b2a-4af2-b355-c26497ba23cd&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-17T00%3A53%3A12Z&ske=2026-10-18T00%3A53%3A12Z&sks=b&skv=2026-02-06&sig=3IOP8zhMRqkAPbWbV1NbvPp80PbhRKuVWSRkknR4kyo%3D"
+        run: |
+          curl --fail --location --retry 3 --max-time 180 "$ARTIFACT_URL" -o AliCoupangManagerSetup-v1.1.14.zip
+          echo "80a83ff7a021c34e7c1dbe4b124c7db14e14e608ee1b5ba1077490b57408fb20  AliCoupangManagerSetup-v1.1.14.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.14.zip
+      - name: Publish release and verify asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.14 AliCoupangManagerSetup-v1.1.14.zip --title "알리 쿠팡 매니저 v1.1.14" --notes "재고 확인 시 옵션별 가격 동시 확인, 기준 마진율을 유지하는 판매가 상승·하락 자동반영, 상품 요약 숫자 필터와 미확인 사유 표시" --latest
+          mkdir verify
+          gh release download v1.1.14 --pattern AliCoupangManagerSetup-v1.1.14.zip --dir verify
+          echo "80a83ff7a021c34e7c1dbe4b124c7db14e14e608ee1b5ba1077490b57408fb20  verify/AliCoupangManagerSetup-v1.1.14.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.14',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.14/AliCoupangManagerSetup-v1.1.14.zip',sha256='80a83ff7a021c34e7c1dbe4b124c7db14e14e608ee1b5ba1077490b57408fb20',notes='재고 확인 시 옵션별 가격 동시 확인, 기준 마진율을 유지하는 판매가 상승·하락 자동반영, 상품 요약 숫자 필터와 미확인 사유 표시')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.14 automatic update"
+          git push
