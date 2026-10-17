@@ -1,6 +1,6 @@
 {
-  "version": "1.1.7",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.7/AliCoupangManagerSetup-v1.1.7.zip",
-  "sha256": "48c16d2b02cd96a3b5fa6afa183a45341e939062e9c2fb122ee5c89a376fb01a",
-  "notes": "상품·주문관리 UI 개편, 재고·이미지 재수집, 작업현황·실패 상세, 메모 기록, 월별·연간 수익"
+  "version": "1.1.8",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.8/AliCoupangManagerSetup-v1.1.8.zip",
+  "sha256": "8e38eece24398dafd3485782d67b6c2d1f26701e37ea07a892868f573216827e",
+  "notes": "초이스만 수집·알뜰마트 제외, 이미지 복구·전체 선택, API 요청 제한 대응, 주문관리 축소·기본 7일"
 }
