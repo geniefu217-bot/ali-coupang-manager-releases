@@ -1,6 +1,6 @@
 {
-  "version": "1.1.10",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.10/AliCoupangManagerSetup-v1.1.10.zip",
-  "sha256": "760e89704ea3c620aecd0a36da06ed937b979216a8846d556f9e176deeb60265",
-  "notes": "상품 표시·선택 개수, 목표 수량까지 다음 페이지 연속 수집, 신규 등록 판매 시작일 당일 설정"
+  "version": "1.1.11",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.11/AliCoupangManagerSetup-v1.1.11.zip",
+  "sha256": "a23eadb1af7452143829f369c1b356ad9c862d17f3a7f7a3ae0aa0c1c18abde7",
+  "notes": "상품 ID 중복 검사 후 상세 확인, 초이스·알뜰마트 판정 및 수집 진단 개선, 상품 도구 한 줄 정리, 미사용 알리 API 메뉴 숨김"
 }
