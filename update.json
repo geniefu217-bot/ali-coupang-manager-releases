@@ -1,6 +1,6 @@
 {
-  "version": "1.1.23",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.23/AliCoupangManagerSetup-v1.1.23.zip",
-  "sha256": "4c0e387c9798c1fb2db91eb95c25ece915d8ed02c8f52cadf70b24a30d9823ad",
-  "notes": "상품 단위 등록 판정·집계 통일, 기존 등록 상품의 미등록 옵션 구분, 등록 제외 사유 표시, 중복 확인·수집 데이터 정리 및 복원"
+  "version": "1.1.24",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.24/AliCoupangManagerSetup-v1.1.24.zip",
+  "sha256": "806671de51cd7ac27da322a46722bdb0a492662f5fb242446226acb8b6607615",
+  "notes": "옵션 화면 반복 탐색·비교와 대상 조회 계산 최적화, 빠르게 로딩된 탭의 완료 신호 누락으로 생기는 대기 보완"
 }
