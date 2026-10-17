@@ -1,6 +1,6 @@
 {
-  "version": "1.1.19",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.19/AliCoupangManagerSetup-v1.1.19.zip",
-  "sha256": "4d7e8d8e6d41795ac7d50a2dd34ebc2c925a782c7d723f475c25b91aa5376c57",
-  "notes": "등록상품 수동 동기화 버튼, 목록 즉시 표시·옵션 지연 표시, 최소 재고 제한 제거와 기존 제외항목 복구"
+  "version": "1.1.21",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.21/AliCoupangManagerSetup-v1.1.21.zip",
+  "sha256": "1fb8464ddbdaecf787f7b617179114d06d87227a40c77c35313b96a27375e3db",
+  "notes": "50상품씩 자동전송·이어수집, 수집상품 중복·필수값 자동검사 후 등록, 등록일 필터·최신순 정렬, 상품관리 상단 통합, 옵션 확인 시간초과 및 원화가격 인식 보완"
 }
