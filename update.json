@@ -1,6 +1,6 @@
 {
-  "version": "1.1.16",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.16/AliCoupangManagerSetup-v1.1.16.zip",
-  "sha256": "5a45b9372949c46ad1fe1f2c269dd899dd26ec1aa69c637aa3a1bbc32a239e4e",
-  "notes": "수집된 색상·디자인 코드를 쿠팡 필수 구매옵션에 자동 연결하고 검수 화면 자동 입력"
+  "version": "1.1.17",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.17/AliCoupangManagerSetup-v1.1.17.zip",
+  "sha256": "b4eabf1c2cb1183518150929e4102d57644bd031e01247d54b71135dbba4c7ef",
+  "notes": "판매 수량 1개 자동 입력, 옵션별 수집 재고를 실제 판매 가능 재고로 등록"
 }
