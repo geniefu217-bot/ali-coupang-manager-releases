@@ -1,6 +1,6 @@
 {
-  "version": "1.1.6",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.6/AliCoupangManagerSetup-v1.1.6.zip",
-  "sha256": "16d8b0dd0b3d6778ec488cddf5e3b71dd8139b210c07653eb2d5117ae7a0369e",
-  "notes": "알리 옵션·재고 수집 및 알리 연결 주문·수익 필터 수정"
+  "version": "1.1.7",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.7/AliCoupangManagerSetup-v1.1.7.zip",
+  "sha256": "48c16d2b02cd96a3b5fa6afa183a45341e939062e9c2fb122ee5c89a376fb01a",
+  "notes": "상품·주문관리 UI 개편, 재고·이미지 재수집, 작업현황·실패 상세, 메모 기록, 월별·연간 수익"
 }
