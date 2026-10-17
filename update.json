@@ -1,6 +1,6 @@
 {
-  "version": "1.1.17",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.17/AliCoupangManagerSetup-v1.1.17.zip",
-  "sha256": "b4eabf1c2cb1183518150929e4102d57644bd031e01247d54b71135dbba4c7ef",
-  "notes": "판매 수량 1개 자동 입력, 옵션별 수집 재고를 실제 판매 가능 재고로 등록"
+  "version": "1.1.18",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.18/AliCoupangManagerSetup-v1.1.18.zip",
+  "sha256": "b5e3cf3b89744dcf0c0d84bb2cfadf89a9601b5ada9dab3d9a31272a71d4da6d",
+  "notes": "상품관리 화면 정리·제외항목 기본 숨김, 재고 확인 부분실패·사유 표시, 정확한 SKU 재고 연결 보완"
 }
