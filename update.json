@@ -1,6 +1,6 @@
 {
-  "version": "1.1.18",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.18/AliCoupangManagerSetup-v1.1.18.zip",
-  "sha256": "b5e3cf3b89744dcf0c0d84bb2cfadf89a9601b5ada9dab3d9a31272a71d4da6d",
-  "notes": "상품관리 화면 정리·제외항목 기본 숨김, 재고 확인 부분실패·사유 표시, 정확한 SKU 재고 연결 보완"
+  "version": "1.1.19",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.19/AliCoupangManagerSetup-v1.1.19.zip",
+  "sha256": "4d7e8d8e6d41795ac7d50a2dd34ebc2c925a782c7d723f475c25b91aa5376c57",
+  "notes": "등록상품 수동 동기화 버튼, 목록 즉시 표시·옵션 지연 표시, 최소 재고 제한 제거와 기존 제외항목 복구"
 }
