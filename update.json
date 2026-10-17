@@ -1,6 +1,6 @@
 {
-  "version": "1.1.22",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.22/AliCoupangManagerSetup-v1.1.22.zip",
-  "sha256": "af6b27332b1a0e2434e3d76788161f9c2cc283e1c96697514074820a0973355b",
-  "notes": "선택 옵션 표시가격·품절 인식 보완, 확인값 중간 저장과 부분 완료 표시, 미확인 항목만 재시도, 최초 수집 품절옵션 제외·등록옵션 품절 시 재고0 반영"
+  "version": "1.1.23",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.23/AliCoupangManagerSetup-v1.1.23.zip",
+  "sha256": "4c0e387c9798c1fb2db91eb95c25ece915d8ed02c8f52cadf70b24a30d9823ad",
+  "notes": "상품 단위 등록 판정·집계 통일, 기존 등록 상품의 미등록 옵션 구분, 등록 제외 사유 표시, 중복 확인·수집 데이터 정리 및 복원"
 }
