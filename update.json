@@ -1,6 +1,6 @@
 {
-  "version": "1.1.12",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.12/AliCoupangManagerSetup-v1.1.12.zip",
-  "sha256": "b556b5ebc11ff40a959404228a1584142101e375f94935625a4a92e7b35cd286",
-  "notes": "옵션별 재고 직접 확인, 주문 수집 진행률 및 신규·반품·취소·교환 건수 표시"
+  "version": "1.1.13",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.13/AliCoupangManagerSetup-v1.1.13.zip",
+  "sha256": "889476809d091982f9a3c8b4f80d4b971e0072a88b0893771725cfa73e6c3337",
+  "notes": "등록 상품 재고 자동분산 확인, 삭제 페이지 연결상품 정리, 운송장 등록·상태 갱신, 수집 일시정지·이어하기 및 속도 개선"
 }
