@@ -1,0 +1,38 @@
+name: Publish collector v2.3.20
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-collector-v2320.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify collector package
+        run: |
+          echo "7832792dcffb021dfc5b49720a336304d47b739bc0682be7ff48d6ef1fb7747b  AliNailtipCollector-v2.3.20.zip" | sha256sum -c -
+          unzip -t AliNailtipCollector-v2.3.20.zip
+          python - <<'PY'
+          import json,zipfile
+          with zipfile.ZipFile('AliNailtipCollector-v2.3.20.zip') as z:
+              assert z.testzip() is None
+              assert json.loads(z.read('ali-nailtip-collector/manifest.json'))['version']=='2.3.20'
+          PY
+          unzip -q AliNailtipCollector-v2.3.20.zip -d unpacked
+          node --check unpacked/ali-nailtip-collector/option_inventory.js
+          node --check unpacked/ali-nailtip-collector/content.js
+          node --check unpacked/ali-nailtip-collector/background.js
+      - name: Publish collector for app v1.1.29
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view v1.1.29
+          gh release upload v1.1.29 AliNailtipCollector-v2.3.20.zip
+      - name: Verify anonymous public download
+        run: |
+          mkdir verify
+          curl --fail --location --retry 3 --max-time 180 'https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.29/AliNailtipCollector-v2.3.20.zip' -o verify/AliNailtipCollector-v2.3.20.zip
+          echo "7832792dcffb021dfc5b49720a336304d47b739bc0682be7ff48d6ef1fb7747b  verify/AliNailtipCollector-v2.3.20.zip" | sha256sum -c -
