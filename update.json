@@ -1,6 +1,6 @@
 {
-  "version": "1.1.26",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.26/AliCoupangManagerSetup-v1.1.26.zip",
-  "sha256": "367037a0fd20027e9900bf970a5b2568c4ce884e047442f4c9cb6ca7f2049c56",
-  "notes": "상세 수집 전 전체 상품번호 중복 검사·이어하기 갱신, 보류 승인·품절 처리·제거, 재고 미확인과 품절 구분"
+  "version": "1.1.27",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.27/AliCoupangManagerSetup-v1.1.27.zip",
+  "sha256": "dff94495e439189d3246113a682f0dbe2325e8c7b2df6c5f5ff9214c49518599",
+  "notes": "수집 전용 창 분리·고유 탭 번호 제어, 탭 조작 충돌 재시도, 상세 응답 연결 복구와 실패 상품 이어하기"
 }
