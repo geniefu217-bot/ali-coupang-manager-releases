@@ -1,6 +1,6 @@
 {
-  "version": "1.1.27",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.27/AliCoupangManagerSetup-v1.1.27.zip",
-  "sha256": "dff94495e439189d3246113a682f0dbe2325e8c7b2df6c5f5ff9214c49518599",
-  "notes": "수집 전용 창 분리·고유 탭 번호 제어, 탭 조작 충돌 재시도, 상세 응답 연결 복구와 실패 상품 이어하기"
+  "version": "1.1.28",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.28/AliCoupangManagerSetup-v1.1.28.zip",
+  "sha256": "fd7b7c5928b5b7348b9db3a94e5516ce8124e9c61c02d598cd451def24ace2a2",
+  "notes": "쿠팡 등록 재시도 차단 시 원래 오류 표시, 수집 상품 수신 후 목록 자동 갱신 및 탭 전환 시 최신 조회, 편집 중인 값 보호"
 }
