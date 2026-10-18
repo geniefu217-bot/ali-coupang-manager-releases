@@ -1,6 +1,6 @@
 {
-  "version": "1.1.25",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.25/AliCoupangManagerSetup-v1.1.25.zip",
-  "sha256": "52d0621c51eb5f11d3a1b8e6d27163b49422f41084c0ebf552b426c86940ca9a",
-  "notes": "보류 상품 직접 승인·품절 처리·제거와 복원, 네일팁 분류 보완, 재고 미확인과 품절 0 구분"
+  "version": "1.1.26",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.26/AliCoupangManagerSetup-v1.1.26.zip",
+  "sha256": "367037a0fd20027e9900bf970a5b2568c4ce884e047442f4c9cb6ca7f2049c56",
+  "notes": "상세 수집 전 전체 상품번호 중복 검사·이어하기 갱신, 보류 승인·품절 처리·제거, 재고 미확인과 품절 구분"
 }
