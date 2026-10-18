@@ -1,6 +1,6 @@
 {
-  "version": "1.1.28",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.28/AliCoupangManagerSetup-v1.1.28.zip",
-  "sha256": "fd7b7c5928b5b7348b9db3a94e5516ce8124e9c61c02d598cd451def24ace2a2",
-  "notes": "쿠팡 등록 재시도 차단 시 원래 오류 표시, 수집 상품 수신 후 목록 자동 갱신 및 탭 전환 시 최신 조회, 편집 중인 값 보호"
+  "version": "1.1.29",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.29/AliCoupangManagerSetup-v1.1.29.zip",
+  "sha256": "c2998956001622c04b4f5eaddc4691539590084d79ca1f47701273d50b98c95e",
+  "notes": "수집 대기 개선·50상품 또는 5분마다 중간 전송, 보류 상품 카테고리 선택 및 카테고리별 등록 검수, 상품 목록에서 알리 원본 바로 열기"
 }
