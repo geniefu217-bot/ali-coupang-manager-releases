@@ -1,0 +1,45 @@
+name: Publish v1.1.32
+on:
+  push:
+    paths: ['.github/workflows/publish-v1132.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release files
+        run: |
+          echo "60c8a7c498bb19bd5dc815582a2dcdb639439469f32c03faad7288c1df46fef3  AliCoupangManagerSetup-v1.1.32.zip" | sha256sum -c -
+          echo "d45efd544808c39093a7574b7dbc0f0c844c7a7c2a5f1bccd6a79d12494a1fd7  AliNailtipCollector-v2.3.22.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.32.zip
+          unzip -t AliNailtipCollector-v2.3.22.zip
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.32 AliCoupangManagerSetup-v1.1.32.zip AliNailtipCollector-v2.3.22.zip --title "알리 쿠팡 매니저 v1.1.32" --notes "Wing 엑셀 수동 등록 전환, 상품명·대표이미지 검수와 원본 이미지 ZIP, 카테고리 변경, 승인 옵션 재고·품절 관리, 쿠팡 실제 판매상태 조회, 수집기 확인창 재시도·부분 결과 즉시 반영" --latest
+      - name: Verify public downloads
+        run: |
+          mkdir verify
+          curl --fail --location --retry 3 --max-time 180 'https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.32/AliCoupangManagerSetup-v1.1.32.zip' -o verify/AliCoupangManagerSetup-v1.1.32.zip
+          echo "60c8a7c498bb19bd5dc815582a2dcdb639439469f32c03faad7288c1df46fef3  verify/AliCoupangManagerSetup-v1.1.32.zip" | sha256sum -c -
+          curl --fail --location --retry 3 --max-time 180 'https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.32/AliNailtipCollector-v2.3.22.zip' -o verify/AliNailtipCollector-v2.3.22.zip
+          echo "d45efd544808c39093a7574b7dbc0f0c844c7a7c2a5f1bccd6a79d12494a1fd7  verify/AliNailtipCollector-v2.3.22.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.32',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.32/AliCoupangManagerSetup-v1.1.32.zip',sha256='60c8a7c498bb19bd5dc815582a2dcdb639439469f32c03faad7288c1df46fef3',notes='Wing 엑셀 수동 등록 전환, 상품명·대표이미지 검수와 원본 이미지 ZIP, 카테고리 변경, 승인 옵션 재고·품절 관리, 쿠팡 실제 판매상태 조회, 수집기 확인창 재시도·부분 결과 즉시 반영')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.32 automatic update"
+          git push
