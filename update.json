@@ -1,6 +1,6 @@
 {
-  "version": "1.1.30",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.30/AliCoupangManagerSetup-v1.1.30.zip",
-  "sha256": "21680ed158c4204ae25aecdeaf64c0d2c71a0c4d2010c04702d098e68cf09f1f",
-  "notes": "등록상품의 미등록 옵션 필터, 선택 옵션 재고 일괄 저장, Ctrl+F 화면 검색 및 접힌 옵션 자동 펼침"
+  "version": "1.1.31",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.31/AliCoupangManagerSetup-v1.1.31.zip",
+  "sha256": "27a0e85b2a4f9e3b41f2c540bf9f50c174f5362b372bef85ef5508cfaab0385c",
+  "notes": "Windows 자동업데이트 종료·설치·재실행 순서 보완, 설치 실패 로그 및 실제 실행 버전 확인"
 }
