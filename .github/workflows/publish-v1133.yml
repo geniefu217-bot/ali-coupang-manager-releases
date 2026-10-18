@@ -1,0 +1,45 @@
+name: Publish v1.1.33
+on:
+  push:
+    paths: ['.github/workflows/publish-v1133.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release files
+        run: |
+          echo "28dd7ce6bd84daba56c411363e51ada9d122b42da4a363420221431e052f73a6  AliCoupangManagerSetup-v1.1.33.zip" | sha256sum -c -
+          echo "d45efd544808c39093a7574b7dbc0f0c844c7a7c2a5f1bccd6a79d12494a1fd7  AliNailtipCollector-v2.3.22.zip" | sha256sum -c -
+          unzip -t AliCoupangManagerSetup-v1.1.33.zip
+          unzip -t AliNailtipCollector-v2.3.22.zip
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.33 AliCoupangManagerSetup-v1.1.33.zip AliNailtipCollector-v2.3.22.zip --title "알리 쿠팡 매니저 v1.1.33" --notes "등록상품 동기화에서 실제 옵션 판매상태까지 자동 갱신, 전체 조회 진행률·실패 사유, 판매중 아님 통합 필터와 상세 상태·확인 시간 표시, 선택 목록 삭제 버튼" --latest
+      - name: Verify public downloads
+        run: |
+          mkdir verify
+          curl --fail --location --retry 3 --max-time 180 'https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.33/AliCoupangManagerSetup-v1.1.33.zip' -o verify/AliCoupangManagerSetup-v1.1.33.zip
+          echo "28dd7ce6bd84daba56c411363e51ada9d122b42da4a363420221431e052f73a6  verify/AliCoupangManagerSetup-v1.1.33.zip" | sha256sum -c -
+          curl --fail --location --retry 3 --max-time 180 'https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.33/AliNailtipCollector-v2.3.22.zip' -o verify/AliNailtipCollector-v2.3.22.zip
+          echo "d45efd544808c39093a7574b7dbc0f0c844c7a7c2a5f1bccd6a79d12494a1fd7  verify/AliNailtipCollector-v2.3.22.zip" | sha256sum -c -
+      - name: Activate verified automatic update
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('update.json')
+          d=json.loads(p.read_text(encoding='utf-8-sig'))
+          d.update(version='1.1.33',download_url='https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.33/AliCoupangManagerSetup-v1.1.33.zip',sha256='28dd7ce6bd84daba56c411363e51ada9d122b42da4a363420221431e052f73a6',notes='등록상품 동기화에서 실제 옵션 판매상태까지 자동 갱신, 전체 조회 진행률·실패 사유, 판매중 아님 통합 필터와 상세 상태·확인 시간 표시, 선택 목록 삭제 버튼')
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Activate verified v1.1.33 automatic update"
+          git push
