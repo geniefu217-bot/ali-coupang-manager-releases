@@ -1,6 +1,6 @@
 {
-  "version": "1.1.29",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.29/AliCoupangManagerSetup-v1.1.29.zip",
-  "sha256": "c2998956001622c04b4f5eaddc4691539590084d79ca1f47701273d50b98c95e",
-  "notes": "수집 대기 개선·50상품 또는 5분마다 중간 전송, 보류 상품 카테고리 선택 및 카테고리별 등록 검수, 상품 목록에서 알리 원본 바로 열기"
+  "version": "1.1.30",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.30/AliCoupangManagerSetup-v1.1.30.zip",
+  "sha256": "21680ed158c4204ae25aecdeaf64c0d2c71a0c4d2010c04702d098e68cf09f1f",
+  "notes": "등록상품의 미등록 옵션 필터, 선택 옵션 재고 일괄 저장, Ctrl+F 화면 검색 및 접힌 옵션 자동 펼침"
 }
