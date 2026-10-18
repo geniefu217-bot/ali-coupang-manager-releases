@@ -1,6 +1,6 @@
 {
-  "version": "1.1.32",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.32/AliCoupangManagerSetup-v1.1.32.zip",
-  "sha256": "60c8a7c498bb19bd5dc815582a2dcdb639439469f32c03faad7288c1df46fef3",
-  "notes": "Wing 엑셀 수동 등록 전환, 상품명·대표이미지 검수와 원본 이미지 ZIP, 카테고리 변경, 승인 옵션 재고·품절 관리, 쿠팡 실제 판매상태 조회, 수집기 확인창 재시도·부분 결과 즉시 반영"
+  "version": "1.1.33",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.33/AliCoupangManagerSetup-v1.1.33.zip",
+  "sha256": "28dd7ce6bd84daba56c411363e51ada9d122b42da4a363420221431e052f73a6",
+  "notes": "등록상품 동기화에서 실제 옵션 판매상태까지 자동 갱신, 전체 조회 진행률·실패 사유, 판매중 아님 통합 필터와 상세 상태·확인 시간 표시, 선택 목록 삭제 버튼"
 }
