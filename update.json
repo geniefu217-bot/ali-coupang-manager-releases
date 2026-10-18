@@ -1,6 +1,6 @@
 {
-  "version": "1.1.31",
-  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.31/AliCoupangManagerSetup-v1.1.31.zip",
-  "sha256": "27a0e85b2a4f9e3b41f2c540bf9f50c174f5362b372bef85ef5508cfaab0385c",
-  "notes": "Windows 자동업데이트 종료·설치·재실행 순서 보완, 설치 실패 로그 및 실제 실행 버전 확인"
+  "version": "1.1.32",
+  "download_url": "https://github.com/geniefu217-bot/ali-coupang-manager-releases/releases/download/v1.1.32/AliCoupangManagerSetup-v1.1.32.zip",
+  "sha256": "60c8a7c498bb19bd5dc815582a2dcdb639439469f32c03faad7288c1df46fef3",
+  "notes": "Wing 엑셀 수동 등록 전환, 상품명·대표이미지 검수와 원본 이미지 ZIP, 카테고리 변경, 승인 옵션 재고·품절 관리, 쿠팡 실제 판매상태 조회, 수집기 확인창 재시도·부분 결과 즉시 반영"
 }
